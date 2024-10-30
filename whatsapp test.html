@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>WhatsApp Chat Widget</title>
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+      /* Basic styles for the widget and popup */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #139a44;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 60px;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        bottom: 110px;
+        right: 40px;
+        width: 300px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+
+      .popup-header {
+        background-color: #139a44;
+        color: white;
+        padding: 10px;
+        border-radius: 8px 8px 0 0;
+      }
+
+      .popup-body {
+        padding: 10px;
+      }
+
+      .close-popup {
+        cursor: pointer;
+        float: right;
+        font-size: 20px;
+        color: white;
+      }
+
+      .whatsapp-button {
+        background-color: #139a44;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 5%;
+        text-align: center;
+        font-size: 17px;
+      }
+
+      .whatsapp-icon {
+        font-size: 58px;
+      }
+
+      .whatsapp-button:hover {
+        background-color: #139a44;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-float" onclick="togglePopup()">
+      <i class="fa fa-whatsapp whatsapp-icon"></i>
+    </div>
+
+    <!-- Popup Chat Widget -->
+    <div id="whatsappPopup" class="popup">
+      <div class="popup-header">
+        Here to help🤗
+        <span class="close-popup" onclick="togglePopup()">&times;</span>
+      </div>
+      <div class="popup-body">
+        <p>Good day👋! Is there anything that I can assist you with today??</p>
+        <div></div>
+        <button class="whatsapp-button" onclick="openWhatsApp()">
+          Chat on WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function togglePopup() {
+        const popup = document.getElementById("whatsappPopup");
+        popup.style.display =
+          popup.style.display === "block" ? "none" : "block";
+      }
+
+      function openWhatsApp() {
+        const phoneNumber = "263716328182"; // Replace with your WhatsApp business number
+        const message = encodeURIComponent(
+          "Hola! Quisiera más información sobre Varela."
+        );
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+  </body>
+</html>

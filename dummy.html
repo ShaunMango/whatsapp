@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="whatsapp.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+
+    <script>
+      function toggleChatWidget() {
+        const chatWidget = document.getElementById("chatWidget");
+        chatWidget.style.display =
+          chatWidget.style.display === "none" || chatWidget.style.display === ""
+            ? "block"
+            : "none";
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div class="whatsapp-icon">
+      <a
+        class="float"
+        target="_blank"
+        onclick="toggleChatWidget()"
+      >
+        <i class="fa fa-whatsapp my-float" style="margin-top: 16px"></i>
+      </a>
+    </div>
+
+    <div class="chat-container">
+      <div></div>
+    </div>
+
+
+    <div
+      id="chatWidget"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 100px;
+        right: 40px;
+        width: 300px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        z-index: 100;
+      "
+    >
+
+  </body>
+</html>
+
+
+
+href="https://api.whatsapp.com/send?phone=263771428041&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."
